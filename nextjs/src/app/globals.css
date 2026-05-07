@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:     #FEF3E2; /* warm cream */
+  --brand1: #FAB12F; /* yellow */
+  --brand2: #FA812F; /* orange */
+  --brand3: #DD0303; /* red */
+  --ink:    #1A1A1A; /* text/icons only */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand1 hover:bg-brand2 text-ink font-semibold px-5 py-2.5 rounded-lg
+           transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md
+           active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-danger {
+    @apply bg-brand3 hover:bg-brand3/90 text-white font-semibold px-4 py-2 rounded-lg
+           transition-all duration-200;
+  }
+  .btn-ghost {
+    @apply bg-transparent hover:bg-brand1/20 text-ink font-medium px-4 py-2 rounded-lg
+           transition-all duration-200 border border-brand1/60;
+  }
+  .card {
+    @apply bg-brand1/15 rounded-xl shadow border border-brand1/50;
+  }
+  .input-field {
+    @apply w-full border border-brand1/60 rounded-lg px-3 py-2.5 text-ink text-sm bg-brand1/10
+           focus:outline-none focus:ring-2 focus:ring-brand2/25 focus:border-brand2
+           transition-all duration-200;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink/80 mb-1;
+  }
+  .page-fade {
+    animation: fadeInUp 0.25s ease;
+  }
+  .skeleton {
+    @apply animate-pulse bg-brand1/20 rounded-xl;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
